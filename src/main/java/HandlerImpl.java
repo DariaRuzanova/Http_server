@@ -2,10 +2,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.spi.FileTypeDetector;
 import java.time.LocalDateTime;
 
-public class Handler1 implements Handler {
+public class HandlerImpl implements Handler {
     @Override
     public void handle(Request request, OutputStream responseStream) {
         String path = request.getPath();
