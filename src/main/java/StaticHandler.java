@@ -4,7 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 
-public class HandlerImpl implements Handler {
+public class StaticHandler implements Handler {
     @Override
     public void handle(Request request, OutputStream responseStream) {
         String path = request.getPath();
@@ -28,9 +28,6 @@ public class HandlerImpl implements Handler {
                             "\r\n"
             ).getBytes());
             responseStream.write(content);
-            responseStream.flush();
-
-            Files.copy(filePath, responseStream);
             responseStream.flush();
         } catch (IOException e) {
             throw new RuntimeException(e);
